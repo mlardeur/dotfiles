@@ -16,6 +16,13 @@ lspci | grep -e VGA -e 3D
 pacman -Ss xf86-video
 # install some font
 pacman -S ttf-dejavu ttf-liberation
+# install icon theme
+pacman -S papirus-icons-theme
+# install font roboto
+pacman -S community/ttf-roboto
+# install GTK theme
+pacman -S materia-gtk-theme 
+yay -S maia-gtk-theme
 
 #############################
 # Install a Display Manager #
@@ -29,16 +36,19 @@ systemctl enable lightdm.service
 # 1- Install LXQt Desktop Environment #
 #######################################
 pacman -S lxqt
-# install icon theme
-pacman -S papirus-icons-theme
-# install font roboto
-pacman -S community/ttf-roboto
+# install Qt kvantum theme
+pacman -S kvantum-qt5
 
 #################################
 # 2- Install I3 Windows Manager #
 #################################
-pacman -S i3-wm i3blocks i3lock i3status dmenu
+pacman -S i3-gaps 
+pacman -S i3blocks i3lock i3status dmenu
+# status bar
+pacman -S polybar
+# Color theme generator
+pacman -S python-pywal
+# app launcher
+pacman -S rofi
 
-# install some usefull package / apps
-pacman -S rxvt-unicode archey
 
