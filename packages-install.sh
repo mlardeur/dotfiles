@@ -1,5 +1,9 @@
+pacman -Sy
+
 # install some usefull package / apps
-pacman -S rxvt-unicode archey
+pacman -S rxvt-unicode 
+
+pacman -S firefox
 
 #################
 # Install Steam #

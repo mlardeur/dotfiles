@@ -5,7 +5,7 @@
 # author: Maxime Lardeur
 # date: 2020-01-20
 ##################################################
-
+z
 #######################
 # Install Xorg server #
 #######################
@@ -48,7 +48,9 @@ pacman -S i3blocks i3lock i3status dmenu
 pacman -S polybar
 # Color theme generator
 pacman -S python-pywal
+wal -i <image_path>
 # app launcher
 pacman -S rofi
+
 
 
