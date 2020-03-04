@@ -1,25 +1,40 @@
-pacman -Sy
+##################################################
+# This script is intented to give basics packages 
+# install to Archlinux
+#
+# author: Maxime Lardeur
+# date: 2020-01-20
+##################################################
 
-# install some usefull package / apps
-pacman -S rxvt-unicode 
+# Update package list
+yay -Sy
 
-pacman -S firefox
+# terminal
+yay -S rxvt-unicode 
+# neofetch
+yay -S neofetch
 
-#################
-# Install Steam #
-#################
+# Cli file manager
+yay -S ranger
+# Gui file manager
+yay -S pcmanfm
+
+# install firefox chromium
+yay -S firefox
+# Gui text editor visual studio code
+yay -S code
+
+
+### Install Steam ###
 # uncomment multilib in /etc/pacman.conf
 nano /etc/pacman.conf
 # install steam package
-pacman -S steam
+yay -S steam
 
 
-############################
-# Install Jetbrain Toolbox #
-############################
+### Install Jetbrain Toolbox ###
 # install JDK11
-pacman -S jdk11-openjdk
-
+yay -S jdk11-openjdk
 # install jetbrain toolbox
 yay -S jetbrains-toolbox
 
