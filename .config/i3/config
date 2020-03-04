@@ -11,11 +11,6 @@ exec_always --no-startup-id polybar_wrapper launch
 exec --no-startup-id compton
 
 #============================= Appearance=====================================#
-
-#============================= Controls ======================================#
-# Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod4
-
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -25,6 +20,10 @@ default_floating_border normal
 
 # Hide borders
 hide_edge_borders none
+
+#============================= Controls ======================================#
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
+set $mod Mod4
 
 ### Windows layout ###
 # change focus

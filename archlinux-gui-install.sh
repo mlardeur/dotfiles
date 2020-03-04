@@ -9,19 +9,19 @@
 #######################
 # Install Xorg server #
 #######################
-pacman -S xorg-server xorg-apps xorg-xinit
+yay -S xorg-server xorg-apps xorg-xinit
 # find hardware video card
 lspci | grep -e VGA -e 3D
 # find and install drivers
-pacman -Ss xf86-video
+yay -Ss xf86-video
 # install some font
-pacman -S ttf-dejavu ttf-liberation
+yay -S ttf-dejavu ttf-liberation
 # install icon theme
-pacman -S papirus-icons-theme
-# install font roboto
-pacman -S community/ttf-roboto
+yay -S papirus-icons-theme
+# install font
+yay -S community/ttf-roboto ttf-hack
 # install GTK theme
-pacman -S materia-gtk-theme
+yay -S materia-gtk-theme
 
 #############################
 # Install a Display Manager #
@@ -34,34 +34,38 @@ systemctl enable lightdm.service
 #######################################
 # 1- Install LXQt Desktop Environment #
 #######################################
-pacman -S lxqt
+yay -S lxqt
 # install Qt kvantum theme
-pacman -S kvantum-qt5
+yay -S kvantum-qt5
 
 #################################
 # 2- Install I3 Windows Manager #
 #################################
-pacman -S i3-gaps 
-pacman -S i3blocks 
-#pacman -S i3lock i3status dmenu
+yay -S i3-gaps 
+yay -S i3blocks 
+#yay -S i3lock i3status dmenu
 
 # image background
-pacman -S feh 
+yay -S feh 
 feh pictures/alena-aenami-solar.jpg 
 
 # status bar
+yay -S ttf-font-awesome
 yay -S polybar
 mkdir ~/.config/polybar
 cp /usr/share/doc/polybar/config ~/.config/polybar/config
 
+# GTK theme GUI manager
+yay -S lxappearance
+
 # Color theme generator
-pacman -S python-pywal
+yay -S python-pywal
 wal -i pictures/alena-aenami-solar.jpg 
 # persist generated palette
-echo "wal -R" >> .xinitrc
+echo "wal -R &" >> .xprofile
 
 # app launcher
-pacman -S rofi
+yay -S rofi
 mkdir ~/.config/rofi
 cp config/rofi/config.rasi ~/.config/rofi/config.rasi
 

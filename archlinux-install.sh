@@ -115,7 +115,9 @@ passwd
 ############################
 # Install some usefull packages #
 ############################
-pacman -S netctl dhclient wireless_tools 
+#pacman -S netctl dhclient wireless_tools 
+pacman -S networkmanager network-manager-applet networkmanager-openvpn
+systemctl enable NetworkManager
 pacman -S htop parted sudo 
 pacman -S man-db man-pages texinfo
 pacman -S git go
