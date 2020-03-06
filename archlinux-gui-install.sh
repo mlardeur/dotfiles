@@ -55,6 +55,10 @@ yay -S polybar
 mkdir ~/.config/polybar
 cp /usr/share/doc/polybar/config ~/.config/polybar/config
 
+# Compositor
+yay -S picom
+mkdir .config/picom
+
 # GTK theme GUI manager
 yay -S lxappearance
 

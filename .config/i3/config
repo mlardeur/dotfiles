@@ -4,28 +4,109 @@
 #============================= Launch settings ===============================#
 # Applications to be launched when i3 starts
 
+# Network manager nm-applet is a desktop system tray GUI
+exec --no-startup-id nm-applet
+
 # Polybar is used instead of i3bar
-exec_always --no-startup-id polybar_wrapper launch
+exec_always --no-startup-id polybar example
 
 # Compositor to fix screen tearing and allow transparent windows
-exec --no-startup-id compton
+exec --no-startup-id picom
 
-#============================= Appearance=====================================#
+
+#============================= Appearance ====================================#
+
+#----------------------------------- Colors ----------------------------------#
+# Colors are set from .Xresources. Fallback is Solarized color scheme
+set_from_resource $bg background            #002B36
+set_from_resource $bg_alt background_alt    #93A1A1
+set_from_resource $fg foreground            #586E75
+set_from_resource $pri primary              #268BD2
+set_from_resource $urg urgent               #DC322F
+
+#----------------------------- Window appearance -----------------------------#
+# Window colors
+client.background $bg   # default background color
+
+# bar border    - Border color around title bar (used in tabbed windows)
+# window border - Border color around window
+# text          - Text color for the title bar
+# indicator     - Color of border edge where new window will be created
+
+# class                 bar border  win border  text        indicator
+client.focused          $pri        $pri        $bg         $pri
+client.focused_inactive $bg_alt     $bg_alt     $bg         $bg_alt
+client.unfocused        $bg         $bg         $fg         $bg
+client.urgent           $bg         $urg        $bg         $urg
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
 default_floating_border normal
+new_window pixel 1
 
 # Hide borders
-hide_edge_borders none
+hide_edge_borders smart
+
+# Font used by i3; controls size of title bar
+font pango:DejaVu Sans 8
+
+# Gaps 
+# Set inner/outer gaps
+gaps inner 14
+gaps outer -2
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
 
 #============================= Controls ======================================#
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-### Windows layout ###
+#------------------------------- System --------------------------------------#
+# Shutdown
+set $mode_system "[l]ock   | log[o]ut  | [r]eboot  | [p]oweroff "
+mode  $mode_system {
+    bindsym l exec i3lock-wrapper; mode "default"
+    bindsym o exec i3-msg exit; mode "default"
+    bindsym r exec systemctl reboot; mode "default"
+    bindsym p exec systemctl poweroff; mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode $mode_system
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+
+#------------------------------- Applications --------------------------------#
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start program launcher
+bindsym $mod+d exec --no-startup-id dmenu_recency
+
+# launch categorized menu
+bindsym $mod+z exec --no-startup-id morc_menu
+
+#---------------------------- Workspace navigation ---------------------------# 
+# Controls to navigate inside a workspace
+
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -38,10 +119,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+#--------------------------- Container manipulation --------------------------#
 # split orientation
 bindsym $mod+h split h
 bindsym $mod+v split v
-bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -62,6 +143,8 @@ bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+# focus the child container
+bindsym $mod+z focus child
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -70,6 +153,22 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# Special mode to resize window (mouse drag also works)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Grow/shrink the window size using typical vim navigation or arrows
+        bindsym Left  resize shrink width  10 px or 10 ppt
+        bindsym Down  resize grow   height 10 px or 10 ppt
+        bindsym Up    resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow   width  10 px or 10 ppt
+
+        # Return to normal mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#-------------------------------- Workspaces ---------------------------------#
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
@@ -126,31 +225,28 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws8; workspace $ws9
 bindsym $mod+Shift+10 move container to workspace $ws8; workspace $ws10
 
+#------------------------------ Miscellaneous --------------------------------#
+# Reload the configuration file
+bindsym $mod+Shift+c reload
 
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
 
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-### Gaps ###
-# Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+#============================ Window properties ==============================#
+# Define special properties for certain classes of windows
 
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# Floating mode for dialog windows
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 
-### Set colors from Xresources ###
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
-# from the generated scheme.
-# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
-# it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-
-# class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-
-client.background       $bg
+for_window [class="Steam"] floating enable
+for_window [class="Steam" title="^Steam$"] floating disable
+assign [class="Steam"] $steam
 
