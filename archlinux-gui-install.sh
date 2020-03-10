@@ -23,23 +23,16 @@ yay -S community/ttf-roboto ttf-hack
 # install GTK theme
 yay -S materia-gtk-theme
 
-#############################
-# Install a Display Manager #
-# lightdm                   #
-#############################
+######################################
+# OPTION - Install a Display Manager #
+# lightdm                            #
+######################################
 yay -S lightdm lightdm-slick-greater lightdm-settings 
 # enable 
 systemctl enable lightdm.service
 
-#######################################
-# 1- Install LXQt Desktop Environment #
-#######################################
-yay -S lxqt
-# install Qt kvantum theme
-yay -S kvantum-qt5
-
 #################################
-# 2- Install I3 Windows Manager #
+# Install I3 Windows Manager #
 #################################
 yay -S i3-gaps 
 yay -S i3blocks 
@@ -52,8 +45,7 @@ feh pictures/alena-aenami-solar.jpg
 # status bar
 yay -S ttf-font-awesome
 yay -S polybar
-mkdir ~/.config/polybar
-cp /usr/share/doc/polybar/config ~/.config/polybar/config
+install -Dm644 /usr/local/share/doc/polybar/config $HOME/.config/polybar/config
 
 # Compositor
 yay -S picom

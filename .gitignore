@@ -1,6 +1,7 @@
 # First, ignore everything
 *
-
+# Now, whitelist anything that's a directory
+!*/
 # Include here
 !.gitignore
 !.config
