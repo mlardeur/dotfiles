@@ -1,0 +1,12 @@
+# First, ignore everything
+*
+
+# Include here
+!.gitignore
+!.config
+!pictures
+!*.sh
+!LICENSE
+!README.md
+!.xprofile
+!.Xresources
