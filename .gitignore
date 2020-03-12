@@ -1,13 +1,19 @@
 # First, ignore everything
-*
-# Now, whitelist anything that's a directory
-!*/
+/*
+
 # Include here
 !.gitignore
-!.config
 !pictures
 !*.sh
 !LICENSE
 !README.md
 !.xprofile
 !.Xresources
+!.xinitrc
+
+# Subdirectory
+!/.config
+/.config/*
+!/.config/i3
+!/.config/polybar
+!/.config/rofi
