@@ -4,12 +4,12 @@
 # Include here
 !.gitignore
 !pictures
-!*.sh
 !LICENSE
 !README.md
 !.xprofile
 !.Xresources
 !.xinitrc
+!/scripts
 
 # Subdirectory
 !/.config

@@ -17,7 +17,7 @@ yay -Ss xf86-video
 # install some font
 yay -S ttf-dejavu ttf-liberation
 # install icon theme
-yay -S papirus-icons-theme
+yay -S papirus-icon-theme
 # install font
 yay -S community/ttf-roboto ttf-hack
 # install GTK theme

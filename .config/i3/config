@@ -93,11 +93,10 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 #------------------------------- Applications --------------------------------#
 # Use Mouse+$mod to drag floating windows
@@ -110,7 +109,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec bindsym $mod+d exec dmenu_run
+# start rofi run
+bindsym $mod+d exec rofi -show run -modi run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -199,6 +200,7 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
+set $music 11
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -211,6 +213,8 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+10 workspace $ws10
+bindsym $mod+m workspace $music
+
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
