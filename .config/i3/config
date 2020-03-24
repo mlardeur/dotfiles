@@ -4,15 +4,15 @@
 #============================= Launch settings ===============================#
 # Applications to be launched when i3 starts
 
+# Compositor to fix screen tearing and allow transparent windows
+exec --no-startup-id picom
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
 # Polybar is used instead of i3bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Compositor to fix screen tearing and allow transparent windows
-exec --no-startup-id picom
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -111,12 +111,18 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec bindsym $mod+d exec dmenu_run
 # start rofi run
-bindsym $mod+d exec rofi -show run -modi run
+bindsym $mod+d exec rofi -show drun -modi run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# start a file manager
+bindsym $mod+k exec pcmanfm
+
+# start a web browser
+bindsym $mod+l exec firefox
 
 #---------------------------- Workspace navigation ---------------------------# 
 # Controls to navigate inside a workspace
@@ -191,7 +197,7 @@ bindsym $mod+Ctrl+Left workspace prev
 #                 set $ws2 2:
 
 set $ws1 1
-set $ws2 2:>_
+set $ws2 2
 set $ws3 3
 set $ws4 4
 set $ws5 5
@@ -201,6 +207,7 @@ set $ws8 8
 set $ws9 9
 set $ws10 10
 set $music 11
+set $steam 12
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -214,7 +221,7 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+10 workspace $ws10
 bindsym $mod+m workspace $music
-
+bindsym $mod+p workspace $steam
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -251,6 +258,14 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
+assign [class="Chromium"] $ws2
+assign [class="firefox"] $ws5
+assign [class="code-oss"] $ws2
+
+
 for_window [class="Steam"] floating enable
 for_window [class="Steam" title="^Steam$"] floating disable
 assign [class="Steam"] $steam
+
+#for_assign [class="Spotify"] move to workspace $music
+assign [class="Spotify"] $music

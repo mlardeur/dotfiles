@@ -5,8 +5,10 @@ killall -q polybar
 # If all your bars have ipc enabled, you can also use 
 # polybar-msg cmd quit
 
-# Launch bar1 and bar2
-echo "---" | tee -a /tmp/polybar.log
-polybar custom >>/tmp/polybar.log 2>&1 &
+# Launch one bar per monitor
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+    echo "---" | tee -a /tmp/polybar-$m.log
+    MONITOR=$m polybar --reload custom >>/tmp/polybar-$m.log 2>&1 &
+done
 
 echo "Bars launched..."

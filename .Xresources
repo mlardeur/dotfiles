@@ -1,5 +1,9 @@
-URxvt*font: xft:Hack-Regular:pixelsize=12
-URxvt*boldFont: xft:Hack-Bold:pixelsize=12
+URxvt*font:                 xft:DejaVu Sans Mono for Powerline:pixelsize=12
+URxvt*imFont:               xft:DejaVu Sans Mono for Powerline:pixelsize=12 
+URxvt*boldFont:             xft:DejaVu Sans Mono for Bold Powerline:pixelsize=12
+URxvt*italicFont:           xft:DejaVu Sans Mono for Oblique Powerline:pixelsize=12
+URxvt*boldItalicFont:       xft:DejaVu Sans Mono for Bold Oblique Powerline:pixelsize=12
+
 URxvt*letterSpace: -1
 URxvt*allow_bold: true
 
