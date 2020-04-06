@@ -5,11 +5,14 @@
 # Applications to be launched when i3 starts
 
 # Compositor to fix screen tearing and allow transparent windows
-exec --no-startup-id picom
+exec --no-startup-id picom -b
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
+
+# Set default Keyboard
+exec --no-startup-id setxkbmap us -variant altgr-intl
 
 # Polybar is used instead of i3bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -78,7 +81,7 @@ bindsym $mod+Shift+r restart
 # Shutdown
 set $mode_system "[l]ock   | log[o]ut  | [r]eboot  | [p]oweroff "
 mode  $mode_system {
-    bindsym l exec i3lock-wrapper; mode "default"
+    bindsym l exec loginctl lock-session; mode "default"
     bindsym o exec i3-msg exit; mode "default"
     bindsym r exec systemctl reboot; mode "default"
     bindsym p exec systemctl poweroff; mode "default"
@@ -89,8 +92,9 @@ mode  $mode_system {
 bindsym $mod+Shift+e mode $mode_system
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10
+# xbacklight only works with intel driver not modesetting (use light instead)
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
@@ -138,6 +142,13 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# Move Workspace to another monitor
+bindsym $mod+Shift+Ctrl+Up move workspace to output up
+bindsym $mod+Shift+Ctrl+Down move workspace to output down
+bindsym $mod+Shift+Ctrl+Left move workspace to output left
+bindsym $mod+Shift+Ctrl+Right move workspace to output right
+
 
 #--------------------------- Container manipulation --------------------------#
 # split orientation
@@ -234,6 +245,8 @@ bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace $ws9
 bindsym $mod+Ctrl+10 move container to workspace $ws10
+bindsym $mod+Ctrl+m move container to workspace $music
+bindsym $mod+Ctrl+p move container to workspace $steam
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -246,6 +259,8 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+10 move container to workspace $ws10; workspace $ws10
+bindsym $mod+Shift+m move container to workspace $ws10; workspace $music
+bindsym $mod+Shift+p move container to workspace $ws10; workspace $steam
 
 #============================ Window properties ==============================#
 # Define special properties for certain classes of windows
@@ -260,7 +275,7 @@ for_window [window_type="menu"] floating enable
 
 assign [class="Chromium"] $ws2
 assign [class="firefox"] $ws5
-assign [class="code-oss"] $ws2
+assign [class="code-oss"] $ws6
 
 
 for_window [class="Steam"] floating enable

@@ -1,4 +1,4 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 .screenlayout/home-asus.sh
-wal -R &
+feh --bg-fill pictures/groot.jpg
 exec i3
