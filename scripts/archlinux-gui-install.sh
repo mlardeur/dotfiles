@@ -36,7 +36,7 @@ systemctl enable lightdm.service
 #################################
 yay -S i3-gaps 
 yay -S i3blocks 
-#yay -S i3lock i3status dmenu
+yay -S i3lock i3status
 
 # image background
 yay -S feh 
