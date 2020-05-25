@@ -284,6 +284,8 @@ for_window [class="qjackctl"] floating enable
 for_window [class="feh"] floating enable
 
 assign [class="Chromium"] $ws2
+assign [class="jetbrains-webstorm"] $ws3
+assign [class="jetbrains-idea-ce"] $ws4
 assign [class="firefox"] $ws5
 assign [class="code-oss"] $ws6
 
