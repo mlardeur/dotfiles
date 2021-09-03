@@ -8,13 +8,13 @@ Aborting."; exit 1; }
 command -v wget >/dev/null 2>&1 || { echo >&2 "Program 'wget' required but is not installed.  
 Aborting."; exit 1; }
 
-APIKEY="get your key first"
+APIKEY="1067ce1700dfe16d6e36408bc7d62059"
 #ZIPCODE="1234"
-#CITY_ID="Get your City ID first"
-#URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&APPID=${APIKEY}"
-LAT="Find out your position with your latitude"
-LON="and longitude"
-URL="http://api.openweathermap.org/data/2.5/onecall?lat=${LAT}&lon=${LON}&units=metric&exclude=minutely,hourly,daily&APPID=${APIKEY}"
+"CITY_ID="2992166""
+URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&APPID=${APIKEY}"
+#LAT="Find out your position with your latitude"
+#LON="and longitude"
+#URL="http://api.openweathermap.org/data/2.5/onecall?lat=${LAT}&lon=${LON}&units=metric&exclude=minutely,hourly,daily&APPID=${APIKEY}"
 WEATHER_RESPONSE=$(wget -qO- "${URL}")
 
 WEATHER_CONDITION=$(echo "$WEATHER_RESPONSE" | jq '.current.weather[0].main' | sed 's/"//g')
