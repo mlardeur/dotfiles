@@ -17,5 +17,6 @@
 /.config/*
 !/.config/picom.conf
 !/.config/i3
+!/.config/sway
 !/.config/polybar
 !/.config/rofi
