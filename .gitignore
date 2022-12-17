@@ -19,4 +19,6 @@
 !/.config/i3
 !/.config/sway
 !/.config/polybar
+!/.config/waybar
 !/.config/rofi
+!/.config/wofi
