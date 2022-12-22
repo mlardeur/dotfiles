@@ -18,19 +18,22 @@ font pango:Noto Sans Regular 10
 smart_borders on
 
 # Set wallpaper:
-exec swaybg -i ~/.config/sway/sway.png
+exec swaybg -i ~/Images/Wallpapers/zen.png
 
 # Title format for windows
 for_window [shell="xdg_shell"] title_format "%title (%app_id)"
 for_window [shell="x_wayland"] title_format "%class - %title"
 
-# class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #F8F8F2
+include ~/.config/sway/colorscheme
+
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
 
 #
 # Status Bar:

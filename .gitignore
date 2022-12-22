@@ -22,3 +22,5 @@
 !/.config/waybar
 !/.config/rofi
 !/.config/wofi
+!/.config/mako
+!/.config/flavours

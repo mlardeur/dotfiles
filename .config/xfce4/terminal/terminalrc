@@ -1,8 +1,9 @@
 [Configuration]
-BackgroundDarkness=0.860000
+BackgroundDarkness=0,860000
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+FontUseSystem=TRUE
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -28,17 +29,15 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=TRUE
 MiscNewTabAdjacent=FALSE
-ColorForeground=#e3e3ea
-ColorBackground=#08052b
-ColorPalette=rgb(8,5,43);rgb(255,127,127);rgb(71,179,93);rgb(204,57,128);rgb(127,186,255);rgb(127,63,191);rgb(127,127,255);rgb(205,204,219);rgb(127,186,255);rgb(255,127,127);rgb(153,153,204);rgb(255,127,127);rgb(127,127,255);rgb(127,63,191);rgb(127,127,255);rgb(227,227,234)
 ScrollingUnlimited=TRUE
 TitleMode=TERMINAL_TITLE_REPLACE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TextBlinkMode=TERMINAL_TEXT_BLINK_MODE_FOCUSED
 FontName=Source Code Pro 10
-ColorCursorForeground=#FFFFFF
-ColorCursor=#ff7f7f
-ColorCursorUseDefault=FALSE
-ColorBold=#7fbaff
+MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
+ColorForeground=#787C99
+ColorBackground=#16161E
+ColorPalette=rgb(22,22,30);rgb(247,118,142);rgb(65,166,181);rgb(224,175,104);rgb(122,162,247);rgb(187,154,247);rgb(125,207,255);rgb(120,124,153);rgb(68,75,106);rgb(247,118,142);rgb(65,166,181);rgb(224,175,104);rgb(122,162,247);rgb(187,154,247);rgb(125,207,255);rgb(213,214,219)
+ColorCursor=x
 ColorBoldIsBright=FALSE
-TabActivityColor=#47B35D
+

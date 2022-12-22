@@ -1,0 +1,19 @@
+## Base16 Tokyo Night Terminal Dark
+# Author: Michaël Ball
+
+set $base00 #16161E
+set $base01 #1A1B26
+set $base02 #2F3549
+set $base03 #444B6A
+set $base04 #787C99
+set $base05 #787C99
+set $base06 #CBCCD1
+set $base07 #D5D6DB
+set $base08 #F7768E
+set $base09 #FF9E64
+set $base0A #E0AF68
+set $base0B #41A6B5
+set $base0C #7DCFFF
+set $base0D #7AA2F7
+set $base0E #BB9AF7
+set $base0F #D18616

@@ -1,0 +1,37 @@
+font=UbuntuMono 12.5
+
+width=315
+height=200
+padding=10
+margin=10
+progress-color=over #eceff480
+icon-path=/usr/share/icons/Arc-X-D
+max-icon-size=70
+layer=overlay
+border-size=2
+border-radius=10
+default-timeout=5000
+
+# Start flavours
+## Base16 Tokyo Night Terminal Dark
+# Author: Michaël Ball
+#
+# You can use these variables anywhere in the mako configuration file.
+
+background-color=#16161E
+text-color=#787C99
+border-color=#7AA2F7
+
+[urgency=low]
+background-color=#16161E
+text-color=#E0AF68
+border-color=#7AA2F7
+
+[urgency=high]
+background-color=#16161E
+text-color=#F7768E
+border-color=#7AA2F7
+# End flavours
+
+ignore-timeout=1
+

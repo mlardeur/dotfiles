@@ -10,11 +10,7 @@
  * Keyframes
  * -------------------------------------------------------------------------- */
 
-/*
-Arc-Dark Color Scheme
-*/
-@define-color highlight #5294e2 ;
-@define-color base1  #404552 ;
+@import "colors.css";
 
 @keyframes blink-warning {
     70% {
@@ -23,7 +19,7 @@ Arc-Dark Color Scheme
 
     to {
         color: white;
-        background-color: orange;
+        background-color: @base0A;
     }
 }
 
@@ -34,7 +30,7 @@ Arc-Dark Color Scheme
 
     to {
         color: white;
-        background-color: red;
+        background-color: @base08;
     }
 }
 
@@ -54,13 +50,14 @@ Arc-Dark Color Scheme
 /* The whole bar */
 #waybar {
     background: transparent;
-    color: #bebebe;
-    background-color: @base1;
+    color: @base07;
+    background-color: @base03;
     font-family: UbuntuMono;
     font-size: 14px;
 }
 
 /* Every modules */
+#disk,
 #battery,
 #clock,
 #backlight,
@@ -90,11 +87,11 @@ Arc-Dark Color Scheme
 }
 
 #battery.warning {
-    color: orange;
+    color: @base0A;
 }
 
 #battery.critical {
-    color: red;
+    color: @base08;
 }
 
 #battery.warning.discharging {
@@ -108,11 +105,11 @@ Arc-Dark Color Scheme
 }
 
 #cpu.warning {
-    color: orange;
+    color: @base0A;
 }
 
 #cpu.critical {
-    color: red;
+    color: @base08;
 }
 
 #memory {
@@ -122,11 +119,11 @@ Arc-Dark Color Scheme
 }
 
 #memory.warning {
-    color: orange;
+    color: @base0A;
  }
 
 #memory.critical {
-    color: red;
+    color: @base08;
     animation-name: blink-critical;
     animation-duration: 2s;
     padding-left:5px;
@@ -134,7 +131,7 @@ Arc-Dark Color Scheme
 }
 
 #mode {
-    background: @highlight;
+    background: @base00;
     border-bottom: 3px transparent;
     color:white;
     margin-left: 5px;
@@ -142,7 +139,7 @@ Arc-Dark Color Scheme
 }
 
 #network.disconnected {
-    color: orange;
+    color: @base0A;
 }
 
 #pulseaudio {
@@ -150,11 +147,11 @@ Arc-Dark Color Scheme
 }
 
 #pulseaudio.muted {
-    color: @highlight;
+    color: @base00;
 }
 
 #temperature.critical {
-    color: red;
+    color: @base08;
 }
 
 #window {
@@ -172,14 +169,14 @@ Arc-Dark Color Scheme
 }
 
 #workspaces button.focused {
-    border-bottom: 3px solid  @highlight;
+    border-bottom: 3px solid  @base00;
     margin-bottom: 1px;
     padding-left:0;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    border-color: @base08;
+    color: @base08;
 }
 
 #custom-power {
@@ -194,7 +191,4 @@ Arc-Dark Color Scheme
     margin-right:10px;
 }
 
-#backlight.icon {
-    padding-right:1px;
-    font-size: 13px;
-}
+
