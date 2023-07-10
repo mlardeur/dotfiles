@@ -16,7 +16,10 @@ for_window [class="Chromium"] focus
 # for_window [app_id=thunar] focus
 
 assign [class="Spotify"] "m"
-for_window [class="Spotify"] "m"
+for_window [class="Spotify"] focus
+
+assign [class="jetbrains-idea-ce"] 4
+for_window [class="jetbrains-idea-ce"] focus
 
 
 for_window [app_id="xed"] focus

@@ -10,6 +10,7 @@
         "custom/launcher",
         "sway/workspaces",
         "sway/mode",
+        "custom/media",
     ],
  
     "modules-center": [
@@ -17,15 +18,13 @@
     ],
 
     "modules-right": [
+        "pulseaudio",
+        "backlight",
         "disk",
         "memory",
         "cpu",
         "temperature",
-        "pulseaudio",
-        "backlight#value",
-        "backlight#icon",
         "battery",
-        "idle_inhibitor",
         "tray",
         "custom/power",
     ],
@@ -79,9 +78,10 @@
     },
 
     "temperature": {
+        "thermal-zone": 4,
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", ""]
+        "format-icons": [""]
     },
 
     "custom/keyboard-layout": {
@@ -152,7 +152,7 @@
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon}  {format_source}",
-        "format-muted": "婢 {format_source}",
+        "format-muted": "muted 婢",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -174,15 +174,9 @@
         "spacing":10,
      },
 
-    "backlight#icon": {
-        "format": "{icon}",
-        "format-icons": [""],
-        "on-scroll-down": "brightnessctl -c backlight set 1%-",
-        "on-scroll-up": "brightnessctl -c backlight set +1%"
-    },
-
-    "backlight#value" :{
-         "format": "{percent}%",
+    "backlight" :{
+         "format": "{percent}% {icon}",
+         "format-icons": [""],
          "on-scroll-down": "brightnessctl -c backlight set 1%-",
          "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
@@ -216,4 +210,17 @@
         "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
         "tooltip": false,
     },
+
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "escape": true,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "on-click": "playerctl play-pause",
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
 }

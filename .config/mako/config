@@ -12,6 +12,9 @@ border-size=2
 border-radius=10
 default-timeout=5000
 
+anchor=bottom-right
+output=eDP-1
+
 # Start flavours
 ## Base16 Tokyo Night Terminal Dark
 # Author: Michaël Ball

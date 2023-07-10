@@ -51,12 +51,13 @@
 #waybar {
     background: transparent;
     color: @base07;
-    background-color: @base03;
+    background-color: @base02;
     font-family: UbuntuMono;
     font-size: 14px;
 }
 
 /* Every modules */
+#custom-media,
 #disk,
 #battery,
 #clock,
@@ -72,13 +73,55 @@
 #tray,
 #idle_inhibitor,
 #custom-PBPbattery {
-    padding:0.5rem 0.6rem;
-    margin: 1px 0px;
+    padding: 0.3rem 0.6rem;
+    margin: 4px 0px;
 }
 
 /* -----------------------------------------------------------------------------
  * Modules styles
  * -------------------------------------------------------------------------- */
+
+ /* Rounded background */
+#clock,
+#disk,
+#memory,
+#cpu,
+#pulseaudio,
+#backlight,
+#battery,
+#temperature {
+    background-color: @base03;
+}
+
+/* Left & Right module */
+#clock, 
+#battery {
+    border-radius: 15px 15px 15px 15px;
+    margin-right: 2px;
+}
+
+/* Left module */
+#disk, 
+#pulseaudio {
+    border-radius: 15px 0px 0px 15px;
+    margin-left: 2px;
+}
+
+/* Right module */
+#temperature,
+#backlight {
+    border-radius: 0px 15px 15px 0px;
+    margin-right: 2px;
+}
+
+#custom-media {
+    border-radius: 15px 15px 15px 15px;
+    margin-right: 2px;
+    background-color: @base03;
+    color: @base0B;
+}
+
+/* Custom colors and animations */
 
 #battery {
     animation-timing-function: linear;
@@ -135,15 +178,11 @@
     border-bottom: 3px transparent;
     color:white;
     margin-left: 5px;
-    padding: 7px;
+    padding: 6px;
 }
 
 #network.disconnected {
     color: @base0A;
-}
-
-#pulseaudio {
-    padding-top:6px;
 }
 
 #pulseaudio.muted {
@@ -169,7 +208,7 @@
 }
 
 #workspaces button.focused {
-    border-bottom: 3px solid  @base00;
+    border-bottom: 3px solid  @base0D;
     margin-bottom: 1px;
     padding-left:0;
 }

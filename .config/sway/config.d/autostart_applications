@@ -2,13 +2,15 @@
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Desktop notifications
-exec mako
+exec_always pkill mako; exec mako
 
 # Network Applet
-exec nm-applet
+exec_always pkill nm-applet; exec nm-applet --indicator
 
 # Battery tray
 #exec cbatticon
+
+exec_always autotiling
 
 # GTK3 applications take a long time to start
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
