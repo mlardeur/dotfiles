@@ -58,8 +58,8 @@
     "clock": {
         "interval": 1,
         "format-alt": " {:%e %b %Y %H:%M}",
-        "format": "{:%H:%M:%S}",
-        "tooltip-format": "{:%e %B %Y}"
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%e %b %Y}"
     },
 
     "disk": {
@@ -128,6 +128,7 @@
 
     "sway/window": {
         "format": "{}",
+        "tooltip": false,
         "max-length": 120
     },
 
@@ -156,8 +157,8 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "וֹ",
+            "headphone": "",
+            "hands-free": "",
             "headset": "  ",
             "phone": "",
             "portable": "",
@@ -220,7 +221,9 @@
             "spotify": "",
             "default": "🎜"
         },
-        "on-click": "playerctl play-pause",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-scroll-up": "playerctl -p spotify next",
+        "on-scroll-down": "playerctl -p spotify previous",
         "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
 }
