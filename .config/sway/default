@@ -1,0 +1,18 @@
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu wofi -c ~/.config/wofi/config -I
+
+set $powermenu ~/.config/waybar/scripts/power-menu.sh
+
+set $swaylock swaylock --screenshots --effect-blur 7x5 --clock --indicator --fade-in ~/.config/swaylock/config
+
+## Lock Screen
+    bindsym $mod+l exec $swaylock
+
+### Key bindings
+#
+# Basics:
+#
+    # Open the power menu
+    bindsym $mod+Shift+e exec $powermenu

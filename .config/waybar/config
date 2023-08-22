@@ -58,8 +58,8 @@
     "clock": {
         "interval": 1,
         "format-alt": " {:%e %b %Y %H:%M}",
-        "format": "{:%H:%M}",
-        "tooltip-format": "{:%e %b %Y}"
+        "format": "{:%H:%M:%S}",
+        "tooltip-format": "{:%e %B %Y}"
     },
 
     "disk": {

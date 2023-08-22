@@ -6,17 +6,14 @@
 !pictures
 !LICENSE
 !README.md
-!.xprofile
+!flatpaks.sh
 !.Xresources
-!.xinitrc
 !/scripts
 !/themes
 
 # Subdirectory
 !/.config
 /.config/*
-!/.config/picom.conf
-!/.config/i3
 !/.config/sway
 !/.config/polybar
 !/.config/waybar
