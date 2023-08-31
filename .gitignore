@@ -24,3 +24,6 @@
 !/.config/wofi
 !/.config/mako
 !/.config/flavours
+!/Images
+/Images/*
+!/Images/Wallpapers
