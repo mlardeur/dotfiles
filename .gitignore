@@ -15,12 +15,12 @@
 # Subdirectory
 !/.config
 /.config/*
-!/.config/picom.conf
-!/.config/i3
 !/.config/sway
-!/.config/polybar
 !/.config/waybar
 !/.config/rofi
 !/.config/wofi
 !/.config/mako
 !/.config/flavours
+!/Images
+/Images/*
+!/Images/Wallpapers
