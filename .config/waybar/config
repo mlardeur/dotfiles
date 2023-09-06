@@ -1,23 +1,27 @@
 // Global 
 {
+
     "layer": "top",
     "position": "top",
 
     // If height property would be not present, it'd be calculated dynamically
     "height": 30,
 
+    // Choose the order of the modules
     "modules-left": [
         "custom/launcher",
         "sway/workspaces",
         "sway/mode",
-        "custom/media",
+        "sway/scratchpad",
+        "custom/media"
     ],
  
     "modules-center": [
-        "clock",
+        "clock"
     ],
 
     "modules-right": [
+        "idle_inhibitor",
         "pulseaudio",
         "backlight",
         "disk",
@@ -26,7 +30,7 @@
         "temperature",
         "battery",
         "tray",
-        "custom/power",
+        "custom/power"
     ],
 
     // Modules
@@ -50,11 +54,6 @@
         "format-icons": ["", "", "", "", ""]
     },
 
-    "custom/PBPbattery": {
-        "exec": "~/.config/waybar/scripts/PBPbattery.sh",
-        "format": "{}",
-    },
-
     "clock": {
         "interval": 1,
         "format-alt": " {:%e %b %Y %H:%M}",
@@ -64,7 +63,7 @@
 
     "disk": {
         "interval": 30,
-        "format": " {free}",
+        "format": " {free}"
     },
 
     "cpu": {
@@ -148,6 +147,14 @@
         }
     },
 
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
     "pulseaudio": {
         "scroll-step": 1,
         "format": "{volume}% {icon}",
@@ -167,12 +174,12 @@
         },
         "on-click": "pavucontrol",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
     },
 
     "tray": {
         "icon-size": 18,
-        "spacing":10,
+        "spacing":10
      },
 
     "backlight" :{
@@ -203,13 +210,13 @@
     "custom/launcher": {
         "format":" ",
         "on-click": "exec wofi -c ~/.config/wofi/config -I",
-        "tooltip": false,
+        "tooltip": false
     },
 
     "custom/power": {
         "format":"⏻",
         "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
-        "tooltip": false,
+        "tooltip": false
     },
 
     "custom/media": {

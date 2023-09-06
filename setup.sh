@@ -2,6 +2,6 @@
 rpm-ostree install distrobox
 systemctl restart
 
-distrobox create fedora
-distrobox enter fedora
+distrobox create dev
+distrobox enter dev
 

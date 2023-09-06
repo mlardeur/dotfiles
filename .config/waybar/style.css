@@ -41,19 +41,60 @@
 /* Reset all styles */
 * {
     border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 1px;
-    padding: 0;
+	border-radius: 0;
+	font-family: Nerd Font Hack;
+	font-size: 14px;
+	min-height: 24px;
 }
 
 /* The whole bar */
-#waybar {
+window#waybar {
     background: transparent;
-    color: @base07;
-    background-color: @base02;
-    font-family: UbuntuMono;
-    font-size: 14px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#window {
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+	border-radius: 26px;
+	transition: none;
+    color: transparent;
+	background: transparent;
+}
+
+#workspaces {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	background: #282a36;
+	transition: none;
+}
+
+#workspaces button {
+	transition: none;
+	color: #f8f8f2;
+	background: transparent;
+	font-size: 16px;
+}
+
+#workspaces button.focused {
+	color: @base0D;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: @base08;
+}
+
+#mode {
+    background-color: #64727D;
 }
 
 /* Every modules */
@@ -63,60 +104,33 @@
 #clock,
 #backlight,
 #cpu,
-#custom-keyboard-layout,
 #memory,
 #mode,
-#custom-weather,
 #network,
 #pulseaudio,
 #temperature,
 #tray,
 #idle_inhibitor,
-#custom-PBPbattery {
-    padding: 0.3rem 0.6rem;
-    margin: 4px 0px;
+#custom-weather,
+#custom-media,
+#custom-power,
+#custom-launcher,
+#custom-keyboard-layout {
+    margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;   
+    transition: none;
 }
+
 
 /* -----------------------------------------------------------------------------
  * Modules styles
  * -------------------------------------------------------------------------- */
 
- /* Rounded background */
-#clock,
-#disk,
-#memory,
-#cpu,
-#pulseaudio,
-#backlight,
-#battery,
-#temperature {
-    background-color: @base03;
-}
-
-/* Left & Right module */
-#clock, 
-#battery {
-    border-radius: 15px 15px 15px 15px;
-    margin-right: 2px;
-}
-
-/* Left module */
-#disk, 
-#pulseaudio {
-    border-radius: 15px 0px 0px 15px;
-    margin-left: 2px;
-}
-
-/* Right module */
-#temperature,
-#backlight {
-    border-radius: 0px 15px 15px 0px;
-    margin-right: 2px;
-}
-
 #custom-media {
-    border-radius: 15px 15px 15px 15px;
-    margin-right: 2px;
     background-color: @base03;
     color: @base0B;
 }
@@ -169,16 +183,11 @@
     color: @base08;
     animation-name: blink-critical;
     animation-duration: 2s;
-    padding-left:5px;
-    padding-right:5px;
 }
 
 #mode {
     background: @base00;
-    border-bottom: 3px transparent;
     color:white;
-    margin-left: 5px;
-    padding: 6px;
 }
 
 #network.disconnected {
@@ -190,31 +199,6 @@
 }
 
 #temperature.critical {
-    color: @base08;
-}
-
-#window {
-    font-weight: bold;
-}
-
-#workspaces {
-    font-size:13px;
-}
-
-#workspaces button {
-    border-bottom: 3px solid transparent;
-    margin-bottom: 0px;
-    padding:0px;
-}
-
-#workspaces button.focused {
-    border-bottom: 3px solid  @base0D;
-    margin-bottom: 1px;
-    padding-left:0;
-}
-
-#workspaces button.urgent {
-    border-color: @base08;
     color: @base08;
 }
 
